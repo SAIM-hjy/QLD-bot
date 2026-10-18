@@ -25,7 +25,7 @@ import requests
 import strategy
 
 # ----- 규칙 설정 (만원 단위) -----
-MONTHLY_DAY = 5          # 월 적립일 (1~28). 이 날짜 이후 첫 거래일에 알림
+MONTHLY_DAY = 3          # 월 적립일 (1~28). 이 날짜 이후 첫 거래일에 알림
 BASE = 150               # 월 정기 적립
 EXTRA = 50               # 월 예비자금 적립
 MA_WINDOW = 150          # 추세 판단용 이동평균 (거래일)

@@ -1,5 +1,7 @@
 {
   "reserve": 200,
-  "tiers_done": [-10],
+  "tiers_done": [
+    -10
+  ],
   "last_month": "2026-10"
 }

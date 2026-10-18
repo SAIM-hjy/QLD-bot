@@ -25,6 +25,7 @@ import requests
 import strategy
 
 # ----- 규칙 설정 (만원 단위) -----
+MONTHLY_DAY = 5          # 월 적립일 (1~28). 이 날짜 이후 첫 거래일에 알림
 BASE = 150               # 월 정기 적립
 EXTRA = 50               # 월 예비자금 적립
 MA_WINDOW = 150          # 추세 판단용 이동평균 (거래일)
@@ -59,7 +60,7 @@ def evaluate(close, state: dict) -> tuple[str, bool]:
     actions: list[str] = []
 
     # 1) 월 적립
-    if state["last_month"] != ym:
+    if state["last_month"] != ym and close.index[-1].day >= MONTHLY_DAY:
         buy = round(BASE * (BEAR_BASE_FRAC if bear else 1.0))
         to_reserve = (BASE - buy) + EXTRA
         state["reserve"] += to_reserve
